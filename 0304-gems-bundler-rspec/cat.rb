@@ -1,7 +1,11 @@
 require "http"
 require "json"
 
-response = HTTP.get("https://cat-fact.herokuapp.com/facts/random")
+responseCat = HTTP.get("https://cat-fact.herokuapp.com/facts/random")
+cat = JSON.parse(responseCat)
 
-cat = JSON.parse(response)
+responsePhoto = HTTP.get("https://aws.random.cat/meow")
+photo = JSON.parse(responsePhoto)
 
+puts photo["file"]
+puts cat["text"]
